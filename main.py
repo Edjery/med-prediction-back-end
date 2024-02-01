@@ -12,6 +12,6 @@ async def read_root():
         "example": "http://127.0.0.1:8000/docs"
     }
 
-@app.get("/predict/{text}")
+@app.post("/predict/")
 async def predict(text: str):
     return {"text": text}
