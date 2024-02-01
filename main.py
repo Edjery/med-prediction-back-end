@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+# Init
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -15,6 +16,7 @@ app.add_middleware(
 class PredictionRequest(BaseModel):
     inputText: str
 
+# API methods
 @app.get("/")
 async def read_root():
     return {
