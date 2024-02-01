@@ -6,7 +6,9 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins={"*"},
+    allow_credentials=True,
     allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Data Validation
@@ -23,4 +25,4 @@ async def read_root():
 
 @app.post("/predict/")
 async def predict(request: PredictionRequest):
-    return request.inputText
+    return request
