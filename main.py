@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import spacy
 
 # Init
 app = FastAPI()
@@ -11,6 +12,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+nlp_best = spacy.load("model-best")
+nlp_last = spacy.load("model-last")
 
 # Data Validation
 class PredictionRequest(BaseModel):
